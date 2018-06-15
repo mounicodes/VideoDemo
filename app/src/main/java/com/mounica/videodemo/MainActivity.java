@@ -33,16 +33,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     switch(v.getId()){
       case R.id.playlocal:
         mPath= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.yellowstone);
+        Intent intentLocal = new Intent(this,VideoPlayerActivity.class);
+        intentLocal.setData(mPath);
+        startActivity(intentLocal);
         break;
       case R.id.playremote:
         mPath = Uri.parse("http://techslides.com/demos/sample-videos/small.mp4");
+        Intent intentRemote = new Intent(this,VideoPlayerActivity.class);
+        intentRemote.setData(mPath);
+        startActivity(intentRemote);
         break;
       case R.id.playyoutube:
-        //TODO
+        Intent intentYoutube = new Intent(this,YoutubeActivity.class);
+        startActivity(intentYoutube);
         break;
     }
-    Intent intent = new Intent(this,VideoPlayerActivity.class);
-    intent.setData(mPath);
-    startActivity(intent);
   }
 }
